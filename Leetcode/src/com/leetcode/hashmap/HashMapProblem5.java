@@ -8,14 +8,19 @@ public class HashMapProblem5 {
 		String s = "loveleetcode";
 		Map<Character, Integer> hash = new HashMap<>();
 		for (int i = 0; i < s.length(); i++) {
-			if (!hash.containsKey(s.charAt(i))) {
-				hash.put(s.charAt(i), 1);
-			} else {
-				int temp = hash.get(s.charAt(i));
-				temp++;
-				hash.put(s.charAt(i), temp);
+			char a = s.charAt(i);
+			hash.put(a, hash.getOrDefault(a, 0) + 1);
+		}
+		
+		char a = ' ';
+		
+		for (int i = 0; i < s.length(); i++) {
+			if (hash.get(s.charAt(i)) == 1) {
+				a = s.charAt(i);
+				break;
 			}
 		}
+		System.out.println(a);
 	}
 
 }
